@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import css from './App.module.css';
+import './App.css';
 import Description from '../Description/Description';
 import Options from '../Options/Options';
 import Feedback from '../Feedback/Feedback';
@@ -43,22 +43,7 @@ function App() {
   return (
     <>
       <Description />
-      <div className={css.options}>
-        <Options updateFeedback={updateFeedback} feedbackType={'good'}>
-          Good
-        </Options>
-        <Options updateFeedback={updateFeedback} feedbackType={'neutral'}>
-          Neutral
-        </Options>
-        <Options updateFeedback={updateFeedback} feedbackType={'bad'}>
-          Bad
-        </Options>
-        {totalFeedback > 0 && (
-          <Options updateFeedback={updateFeedback} feedbackType={'reset'}>
-            Reset
-          </Options>
-        )}
-      </div>
+      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
       {totalFeedback ? (
         <>
           <Feedback
